@@ -13,7 +13,7 @@ function PostPage(){
     const [likesCount, setLikesCount] = useState(0);
 
     useEffect(()=>{
-        axios.get(`https://blog-backend-74jb.onrender.com/api/post/${id}`)
+        axios.get(`https://localhost:3000/api/post/${id}`)
         .then(response=>{
             setPostinfo(response.data);
             setLikesCount(response.data.likes||0);
@@ -22,7 +22,7 @@ function PostPage(){
 
     const deletePost = async () => {
         try {
-            await axios.delete(`https://blog-backend-74jb.onrender.com/api/post/${id}`, {
+            await axios.delete(`https://localhost:3000/api/post/${id}`, {
                 withCredentials: true, 
             });
             alert("Post deleted successfully!");
@@ -38,7 +38,7 @@ function PostPage(){
             const newLikedState = !like;
             setLike(newLikedState);
             setLikesCount(likesCount + (newLikedState ? 1 : -1));
-            await axios.post(`https://blog-backend-74jb.onrender.com/api/post/${id}/like`, {
+            await axios.post(`https://localhost:3000/api/post/${id}/like`, {
                 like: newLikedState
             }, { withCredentials: true });
         } catch (error) {
