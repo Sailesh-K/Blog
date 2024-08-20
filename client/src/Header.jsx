@@ -14,7 +14,7 @@ function Header() {
         if (storedUserInfo) {
           setUserInfo(JSON.parse(storedUserInfo));
         } else {
-          const response = await axios.get("https://localhost:3000/api/test", {
+          const response = await axios.get("https://blog-backend-74jb.onrender.com/api/test", {
             withCredentials: true
           });
           setUserInfo(response.data);
@@ -29,7 +29,7 @@ function Header() {
 
   async function logout() {
     try {
-      await axios.post("https://localhost:3000/api/logout", {}, {
+      await axios.post("https://blog-backend-74jb.onrender.com/api/logout", {}, {
         withCredentials: true,
       });
       setUserInfo(null);

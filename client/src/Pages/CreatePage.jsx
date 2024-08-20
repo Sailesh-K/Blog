@@ -8,7 +8,7 @@ function CreatePage() {
   const [title, setTitle] = useState('');
   const [summary, setSummary] = useState('');
   const [content, setContent] = useState('');
-  const [files, setFiles] = useState(null);
+  const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(null);
 
@@ -23,7 +23,7 @@ function CreatePage() {
     }
 
     try {
-      const response = await axios.post('https://localhost:3000/api/post', data, {
+      const response = await axios.post('https://blog-backend-74jb.onrender.com/api/post', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
